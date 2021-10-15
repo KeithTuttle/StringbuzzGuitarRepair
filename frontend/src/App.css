@@ -36,3 +36,12 @@
     transform: rotate(360deg);
   }
 }
+
+.btn-danger:focus {
+  background-color: #ff3333;
+}
+
+.imageHover {
+  cursor: pointer;
+}
+

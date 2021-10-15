@@ -117,39 +117,6 @@ usersRouter.route('/update/:id').post((req, res) => {
     }); 
 });
 
-//Share Pins
-// TODO: refactor so all code paths return. left as is because I need to get the user, alter it by adding the new pins, and inserting
-usersRouter.route('/share/username/:username').post((req, res) => {
-    console.log("sharing pin");
-    User.findOne({username: req.body.username}, function(err: Error, user: IUser){
-        if(err) {
-            console.log(err);
-            var message = "An error occured";
-            var response = new UserWithErrorMessage(null, message);
-            return res.json(response);
-        }
-        if(!user) {
-            console.log("username doesn't exist in sharePin");
-            var message = "Username does not exist";
-            var response = new UserWithErrorMessage(null, message);
-            return res.json(response);
-        }
-        user.pins = user.pins.concat(req.body.pins);
-        User.updateOne({username: user.username}, {$set: {"pins": user.pins}}, { upsert: true, new: true }, (err) => {
-            if(err){
-                console.log("error occured in sharer updateOne");
-                var response = new UserWithErrorMessage(null, err);
-                return res.json(response);
-            } 
-            else{
-                console.log("SHARED")
-                var response = new UserWithErrorMessage(user, "");
-                return res.json(response);
-            }
-        });
-    });
-});
-
 //update user by username
 usersRouter.route('/update/username/:username').post((req, res) => {
     var options: QueryOptions ={

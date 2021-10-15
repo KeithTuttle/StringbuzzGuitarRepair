@@ -17,27 +17,6 @@ const userSchema = new mongoose_1.Schema({
         trim: true,
         minLength: 3
     },
-    pins: {
-        type: Array,
-        name: {
-            type: String,
-            required: true,
-            unique: true,
-            trim: true,
-            minLength: 1
-        },
-        lat: {
-            type: Number,
-            required: true
-        },
-        long: {
-            type: Number,
-            required: true
-        },
-        description: {
-            type: String
-        },
-    }
 }, {
     timestamps: true,
 });
