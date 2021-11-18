@@ -19,18 +19,20 @@ usersRouter.route('/').get((req, res) => {
 // add user
 usersRouter.route('/add').post(async(req, res) => {
     console.log("adding a user");
-    const username = req.body.username;
+    const email = req.body.email;
+    const firstName = req.body.firstName;
+    const lastName = req.body.lastName;
     const password = await argon2.hash(req.body.password);
-    const newUser = new User({username, password});
+    const newUser = new User({email, firstName, lastName, password});
 
-    User.count({username: username}, async (err, count) => { 
+    User.count({email: email}, async (err, count) => { 
         if(err){
             console.log("ERROR: " + err);
             return res.json(new UserWithErrorMessage(null, "something went wrong"));
         }
         if(count>0){
             console.log("user exists!");
-            return res.json(new UserWithErrorMessage(null, "That username is taken"));
+            return res.json(new UserWithErrorMessage(null, "This email already has a registered account"));
         }
         console.log("saving user");
         newUser.save()
@@ -53,21 +55,21 @@ usersRouter.route('/:id').get((req, res) => {
     .catch(err => res.status(400).json('ERROR: ' + err));
 });
 
-// get user by username
-usersRouter.route('/username/:username').get((req, res) => {
-    console.log("getting user by username");
-    User.findOne({username: req.params.username})
+// get user by email
+usersRouter.route('/email/:email').get((req, res) => {
+    console.log("getting user by email");
+    User.findOne({email: req.params.email})
     .then(user => res.json(user))
     .catch(err => res.status(400).json('ERROR: ' + err));
 });
 
-// get user by username and password
+// get user by email and password
 usersRouter.route('/login').post(async(req, res) => {
-    const username = req.body.username;
+    const email = req.body.email;
     const password = req.body.password;
-    console.log(username);
+    console.log(email);
 
-    User.findOne({username: username}, async function(err: Error, user: IUser){
+    User.findOne({email: email}, async function(err: Error, user: IUser){
         if(err) {
             console.log(err);
             var message = "An error occured";
@@ -76,7 +78,7 @@ usersRouter.route('/login').post(async(req, res) => {
         }
         if(!user) {
             console.log("user not found");
-            var message = "Username does not exist";
+            var message = "Email does not exist";
             var response = new UserWithErrorMessage(null, message);
             return res.json(response);
         }
@@ -117,13 +119,13 @@ usersRouter.route('/update/:id').post((req, res) => {
     }); 
 });
 
-//update user by username
-usersRouter.route('/update/username/:username').post((req, res) => {
+//update user by email
+usersRouter.route('/update/email/:email').post((req, res) => {
     var options: QueryOptions ={
         upsert: false,
         new: true
     };
-    User.findOneAndUpdate({username: req.body.username}, req.body, options, function(err, user) {
+    User.findOneAndUpdate({email: req.body.email}, req.body, options, function(err, user) {
         if(err){
             res.send(err)
         }
@@ -136,9 +138,9 @@ usersRouter.route('/update/username/:username').post((req, res) => {
 });
 
 // GET request
-usersRouter.route('/update/username/:username').get((req, res) => {
-    console.log("update user by username");
-    User.updateOne({username: req.params.username}, {$set: {"username": req.body.username}}, { upsert: true, new: true }, (err) => {
+usersRouter.route('/update/email/:email').get((req, res) => {
+    console.log("update user by email");
+    User.updateOne({email: req.params.email}, {$set: {"email": req.body.email}}, { upsert: true, new: true }, (err) => {
         if(err){
             res.send(err);
         }
