@@ -64,7 +64,7 @@ export default class Home extends React.Component<IProps, HomeState> {
                 this.getUserFromLocalStorage(email);
             }
             return (
-                <div className="background">
+                <div className="background" style={{backgroundImage: `url(images/caio-silva-guitarHomepagePic3.jpg)`}}>
                     <section>
                         <div >  
                             <div className="title">                   
