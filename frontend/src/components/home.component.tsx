@@ -11,38 +11,38 @@ interface IProps {
 
 // defines the type of the state
 interface HomeState {
-    username: string | undefined;
+    email: string | undefined;
 }
 
 export default class Home extends React.Component<IProps, HomeState> {
     constructor(props: IProps) {
         super(props);
         this.state = {
-            username: userStore.getUser()?.username
+            email: userStore.getUser()?.email
         }
     }
 
     componentDidMount() {
         userStore.on("change", () => {
-            let name = userStore.getUser()?.username;
-            if (name == undefined) {
+            let email = userStore.getUser()?.email;
+            if (email == undefined) {
                 this.setState({
-                    username: ''
+                    email: ''
                 });
             }
             else{
                 this.setState({
-                    username: name
+                    email: email
                 });
             }
             
         });
     }
 
-    getUserFromLocalStorage(username: string){
+    getUserFromLocalStorage(email: string){
         var path="";
         if(process.env.NODE_ENV === "development"){ path = "http://localhost:5000"}
-        axios.get<User>(`${path}/users/username/${username}`)
+        axios.get<User>(`${path}/users/email/${email}`)
             .then(result => {
                 UserActions.setUser(result.data);
             })
@@ -50,18 +50,18 @@ export default class Home extends React.Component<IProps, HomeState> {
     }
 
     render(){
-        if ((this.state.username == "" 
-        || this.state.username == undefined 
-        || this.state.username == null)
+        if ((this.state.email == "" 
+        || this.state.email == undefined 
+        || this.state.email == null)
         && localStorage.getItem("user") == null) {
             return (
                 <Redirect push to='/register' />
             );
         }
         else {
-            var username = localStorage.getItem("user");
-            if(username != null && userStore.getUser() == null){
-                this.getUserFromLocalStorage(username);
+            var email = localStorage.getItem("user");
+            if(email != null && userStore.getUser() == null){
+                this.getUserFromLocalStorage(email);
             }
             return (
                 <div>

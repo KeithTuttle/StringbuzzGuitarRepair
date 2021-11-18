@@ -12,7 +12,9 @@ class UserWithErrorMessage {
 exports.UserWithErrorMessage = UserWithErrorMessage;
 class User {
     constructor() {
-        this.username = "";
+        this.email = "";
+        this.firstName = "";
+        this.lastName = "";
     }
 }
 exports.User = User;

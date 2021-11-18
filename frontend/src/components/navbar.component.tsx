@@ -10,7 +10,7 @@ interface IProps {
 
 // defines the type of the state
 interface NavState {
-    username: string;
+    firstName: string;
 }
 
 export default class NavBar extends React.Component<IProps, NavState> {
@@ -18,31 +18,28 @@ export default class NavBar extends React.Component<IProps, NavState> {
         super(props);
         this.clearUsername = this.clearUsername.bind(this);
         this.state = {
-            username: '',
+            firstName: '',
         }
     }
 
     clearUsername(){
         localStorage.removeItem("user");
         this.setState({
-            username: ""
+            firstName: ""
         });
         var user = new User();
-        user.username = '';
+        user.firstName = '';
         UserActions.setUser(user);
     }
 
     componentDidMount() {
-        // this.setState({
-        //     username: localStorage.getItem("user")+''
-        // })
         userStore.on("change", () => {
-            var name = userStore.getUser()?.username;
+            var name = userStore.getUser()?.firstName;
             if (name == undefined) {
                 name = '';
             }
             this.setState({
-                username: name
+                firstName: name
             })
         });
     }
@@ -52,7 +49,7 @@ export default class NavBar extends React.Component<IProps, NavState> {
             <nav className="container topnav navbar navbar-dark bg-dark navbar-expand-lg">
                 <NavLink to="/" className="main_title navbar-brand">Stringbuzz Guitar Repair</NavLink>
                 <div className="collpase navbar-collapse">
-                {this.state.username == '' &&
+                {this.state.firstName == '' &&
                     <ul className="navbar-nav ml-auto">
                         <li className="navbar-item">
                             <NavLink style={{color: 'white'}} to="/contact" className="nav-link">Contact Us </NavLink>
@@ -65,7 +62,7 @@ export default class NavBar extends React.Component<IProps, NavState> {
                         </li>
                     </ul>
                 }
-                {this.state.username != '' &&
+                {this.state.firstName != '' &&
                     <ul className="navbar-nav ml-auto">
                         <li className="navbar-item">
                             <NavLink style={{color: 'white'}} to="/" className="nav-link">Home </NavLink>
@@ -74,7 +71,7 @@ export default class NavBar extends React.Component<IProps, NavState> {
                             <NavLink style={{color: 'white'}} to="/contact" className="nav-link">Contact Us </NavLink>
                         </li>
                         <li className="navbar-item">
-                            <NavLink style={{color: 'white'}} to="/login" className="nav-link" onClick={this.clearUsername}> Logout {this.state.username}</NavLink>
+                            <NavLink style={{color: 'white'}} to="/login" className="nav-link" onClick={this.clearUsername}> Logout {this.state.firstName}</NavLink>
                         </li>
                     </ul>
                 }
