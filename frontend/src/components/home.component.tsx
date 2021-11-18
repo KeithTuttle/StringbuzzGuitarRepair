@@ -74,6 +74,12 @@ export default class Home extends React.Component<IProps, HomeState> {
                                 <div >
                                     <button className="mAButton">Make Appointment</button>
                                 </div>
+                                <div >
+                                    <button className="vIButton">View My Instruments</button>
+                                </div>
+                                <div >
+                                    <button className="vRButton">View My Repair Data</button>
+                                </div>
                             </div>
                         </div>
                     </section>

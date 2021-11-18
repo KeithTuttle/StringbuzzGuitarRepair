@@ -39,11 +39,37 @@ code {
   outline: none;
   position: absolute;
   top: 60%;
-  left: 40%;
+  left: 42.5%;
   display: block;
   border: 0;
-  font-size: 26px;
+  font-size: 20px;
   border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s linear;
+}
+
+.vIButton {
+  outline: none;
+  position: absolute;
+  top: 60%;
+  left: 20.5%;
+  display: block;
+  border: 0;
+  font-size: 20px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s linear;
+}
+
+.vRButton {
+  outline: none;
+  position: absolute;
+  top: 60%;
+  left: 64%;
+  display: block;
+  border: 0;
+  font-size: 20px;
+  border-radius: 500px;
   cursor: pointer;
   transition: all 0.3s linear;
 }
@@ -53,12 +79,22 @@ code {
   background-color: rgb(143, 109, 24);
 }
 
+.vIButton:hover,
+.vIButton:focus {
+  background-color: rgb(143, 109, 24);
+}
+
+.vRButton:hover,
+.vRButton:focus {
+  background-color: rgb(143, 109, 24);
+}
+
 /**************************** (CODE FOR SPRINT 2) images *****************************/
 .background {
   background-color: rgba(78, 73, 73, 0.575);
   background-blend-mode: multiply;
   background-size: cover;
-  padding: 20em;
+  padding: 21.5em;
   height: 100%;
   background-position: center;
   background-repeat: no-repeat;
