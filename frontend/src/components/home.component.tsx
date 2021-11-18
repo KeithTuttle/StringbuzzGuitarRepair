@@ -64,8 +64,44 @@ export default class Home extends React.Component<IProps, HomeState> {
                 this.getUserFromLocalStorage(email);
             }
             return (
-                <div>
-                    Home page!
+                <div className="background" style={{backgroundImage: `url(images/caio-silva-guitarHomepagePic3.jpg)`}}>
+                    <section>
+                        <div >  
+                            <div className="title">                   
+                                <h1 className="centering big_text">STRINGBUZZ</h1>
+                                <br/>
+                                <p className=" page_title">Your Guitar's bestfriend</p>
+                                <div >
+                                    <button className="mAButton">Make Appointment</button>
+                                </div>
+                                <div >
+                                    <button className="vIButton">View My Instruments</button>
+                                </div>
+                                <div >
+                                    <button className="vRButton">View My Repair Data</button>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <footer>
+                        <ul className="mediaFooter">
+                            <li>
+                                <a href="https://twitter.com" target="_blank">
+                                    <img className="footer-img" src="images/Twitter favicon.png"/>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://youtube.com" target="_blank">                       
+                                    <img className="footer-img" src="images/Youtube favicon.png"/>                   
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://instagram.com" target="_blank">                       
+                                    <img className="footer-img" src="images/IG favicon.png"/>                       
+                                </a>
+                            </li>
+                        </ul>
+                    </footer> 
                 </div>
             );
         }

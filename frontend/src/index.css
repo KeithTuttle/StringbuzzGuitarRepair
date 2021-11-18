@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap"); /* 'Pacifico' font, used for .main_title */
 @import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&display=swap"); /* 'Comfortaa' font, used for .page_title */
-
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,900;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Roboto:ital,wght@0,900;1,900&display=swap");
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -22,6 +23,88 @@ code {
   margin-right: auto;
 }
 
+/************ (CODE FOR SPRINT 2) *************/
+.mediaFooter {
+  position: absolute;
+  bottom: 50px;
+  padding: 0;
+  margin-left: auto;
+  list-style-type: none;
+  left: 50px;
+  opacity: 50%;
+}
+
+/******************** (CODE FOR SPRINT 2) Make Appointment Button *********************/
+.mAButton {
+  outline: none;
+  position: absolute;
+  top: 60%;
+  left: 42.5%;
+  display: block;
+  border: 0;
+  font-size: 20px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s linear;
+}
+
+.vIButton {
+  outline: none;
+  position: absolute;
+  top: 60%;
+  left: 20.5%;
+  display: block;
+  border: 0;
+  font-size: 20px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s linear;
+}
+
+.vRButton {
+  outline: none;
+  position: absolute;
+  top: 60%;
+  left: 64%;
+  display: block;
+  border: 0;
+  font-size: 20px;
+  border-radius: 500px;
+  cursor: pointer;
+  transition: all 0.3s linear;
+}
+/*<<<<<<<<<(CODE FOR SPRINT 2)>>>>>>>>>>*/
+.mAButton:hover,
+.mAButton:focus {
+  background-color: rgb(143, 109, 24);
+}
+
+.vIButton:hover,
+.vIButton:focus {
+  background-color: rgb(143, 109, 24);
+}
+
+.vRButton:hover,
+.vRButton:focus {
+  background-color: rgb(143, 109, 24);
+}
+
+/**************************** (CODE FOR SPRINT 2) images *****************************/
+.background {
+  background-color: rgba(78, 73, 73, 0.575);
+  background-blend-mode: multiply;
+  background-size: cover;
+  padding: 21.5em;
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+/*<<<<<<<<<(CODE FOR SPRINT 2)>>>>>>>>>>*/
+.footer-img {
+  width: 40px;
+  border-radius: 0px;
+}
+
 /**************************** Navbar ****************************/
 .inner_navcontainer {
   width: 50%;
@@ -36,7 +119,7 @@ code {
 /* Add a black background color to the top navigation */
 .topnav {
   border-radius: 500px;
-  align: center;
+  align-items: center;
 }
 
 /* Syles the 'Map-Pin' text within the navbar */
@@ -44,7 +127,7 @@ p.main_title {
   font-family: "Pacifico", cursive;
   font-size: 20px;
   color: goldenrod;
-  float: left;
+  float: none;
   display: inline-block;
   text-decoration: none;
   padding: 0px;
@@ -69,7 +152,7 @@ div.title {
 
 /* 'Map-Pin' specific */
 .main_title {
-  font-family: Copperplate,Copperplate Gothic Light,fantasy; 
+  font-family: Copperplate, Copperplate Gothic Light, fantasy;
   font-weight: 800;
   font-size: 21px !important;
   color: goldenrod !important;
@@ -82,6 +165,29 @@ h1.page_title {
   font-size: 40px;
   color: goldenrod;
   display: inline-block;
+}
+
+p.page_title {
+  font-family: "Permanent Marker", sans-serif;
+  font-size: 28px;
+  color: rgb(231, 231, 231);
+  position: absolute;
+  top: 41%;
+  left: 15%;
+  opacity: 100%;
+  transform: rotate(-5deg);
+}
+
+.big_text {
+  font-family: "Roboto", sans-serif;
+  font-size: 140px;
+  color: goldenrod;
+}
+
+.centering {
+  position: absolute;
+  left: 20%;
+  top: 40%;
 }
 
 .navbar-item:hover {
@@ -140,4 +246,3 @@ input[type="submit"]:hover {
 * {
   box-sizing: border-box;
 }
-
