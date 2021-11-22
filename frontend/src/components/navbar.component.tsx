@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 import userStore from '../store/UserStore';
 import * as UserActions from '../store/actions/userActions';
 import { User } from '../viewModels/UserWithErrorMessage';
+import { NavDropdown } from 'react-bootstrap';
 
 interface IProps {
 
@@ -48,6 +49,9 @@ export default class NavBar extends React.Component<IProps, NavState> {
         return(
             <nav className="container topnav navbar navbar-dark bg-dark navbar-expand-lg">
                 <NavLink to="/" className="main_title navbar-brand">Stringbuzz Guitar Repair</NavLink>
+                {this.state.firstName != '' &&
+                <input className="navbar-search form-control navSearch" type="text" style={{maxWidth: '30%'}} placeholder="Search Repairs"></input>
+                }
                 <div className="collpase navbar-collapse">
                 {this.state.firstName == '' &&
                     <ul className="navbar-nav ml-auto">
@@ -70,8 +74,11 @@ export default class NavBar extends React.Component<IProps, NavState> {
                         <li className="navbar-item">
                             <NavLink style={{color: 'white'}} to="/contact" className="nav-link">Contact Us </NavLink>
                         </li>
-                        <li className="navbar-item">
-                            <NavLink style={{color: 'white'}} to="/login" className="nav-link" onClick={this.clearUsername}> Logout {this.state.firstName}</NavLink>
+                        <li className="nav-item dropdown">
+                            <NavDropdown id="nav-dropdow" title="Account">
+                                <NavDropdown.Item ><NavLink style={{color: 'black', textDecoration:'none'}} to="/account-info">View Account Info</NavLink></NavDropdown.Item>
+                                <NavDropdown.Item style={{color: 'black'}} onClick={this.clearUsername}>Logout {this.state.firstName}</NavDropdown.Item>
+                            </NavDropdown>
                         </li>
                     </ul>
                 }
