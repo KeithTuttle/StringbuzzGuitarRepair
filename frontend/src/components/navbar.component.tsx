@@ -71,14 +71,17 @@ export default class NavBar extends React.Component<IProps, NavState> {
                         <li className="navbar-item">
                             <NavLink style={{color: 'white'}} to="/contact" className="nav-link">Contact Us </NavLink>
                         </li>
-                        
-                        <li className="nav-item dropdown">
-                            <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Account </a>
-                                <ul className="dropdown-menu">
-                                    <li><a className="dropdown-item" href="#">Logout</a></li>
-                                    <li><a className="dropdown-item" href="#">View Profile Info</a></li>
-                                </ul>
-                        </li>
+                    <div className="collapse navbar-collapse" id="navbarNavDarkDropdown">
+                       <ul className="navbar-nav">
+                            <li className="nav-item dropdown">
+                                <a className="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Account</a>
+                                    <ul className="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+                                        <li><a className="dropdown-item" href="#">View Profile Info</a></li>
+                                        <li><a className="dropdown-item" href="#">Logout</a></li>
+                                    </ul>
+                            </li>
+                        </ul>
+                    </div>
                         <input className="navbar-search" type="text" placeholder="Search..."></input>
                     </ul>
                 }
