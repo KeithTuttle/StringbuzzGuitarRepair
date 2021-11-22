@@ -60,6 +60,7 @@ export default class NavBar extends React.Component<IProps, NavState> {
                         <li className="navbar-item">
                             <NavLink style={{color: 'white'}} to="/login" className="nav-link">Log-In</NavLink>
                         </li>
+                        <input className="navbar-search" type="text" placeholder="Search..."></input>
                     </ul>
                 }
                 {this.state.firstName != '' &&
@@ -70,9 +71,15 @@ export default class NavBar extends React.Component<IProps, NavState> {
                         <li className="navbar-item">
                             <NavLink style={{color: 'white'}} to="/contact" className="nav-link">Contact Us </NavLink>
                         </li>
-                        <li className="navbar-item">
-                            <NavLink style={{color: 'white'}} to="/login" className="nav-link" onClick={this.clearUsername}> Logout {this.state.firstName}</NavLink>
+                        
+                        <li className="nav-item dropdown">
+                            <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Account </a>
+                                <ul className="dropdown-menu">
+                                    <li><a className="dropdown-item" href="#">Logout</a></li>
+                                    <li><a className="dropdown-item" href="#">View Profile Info</a></li>
+                                </ul>
                         </li>
+                        <input className="navbar-search" type="text" placeholder="Search..."></input>
                     </ul>
                 }
                     
