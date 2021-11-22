@@ -1,5 +1,5 @@
 import React from 'react';
-import { Redirect } from 'react-router-dom';
+import { NavLink, Redirect } from 'react-router-dom';
 import userStore from '../store/UserStore';
 import * as UserActions from '../store/actions/userActions';
 import axios from 'axios';
@@ -70,15 +70,15 @@ export default class Home extends React.Component<IProps, HomeState> {
                             <div className="title">                   
                                 <h1 className="centering big_text">STRINGBUZZ</h1>
                                 <br/>
-                                <p className=" page_title">Your Guitar's bestfriend</p>
+                                <p className="page_title">Your Guitar's bestfriend</p>
                                 <div >
-                                    <button className="mAButton">Make Appointment</button>
+                                    <NavLink to="/appointment"><button className="mAButton">Make Appointment</button></NavLink>
+                                </div>
+                                <div>
+                                    <NavLink to="/view-instrument"><button className="vIButton">View My Instruments</button></NavLink>
                                 </div>
                                 <div >
-                                    <button className="vIButton">View My Instruments</button>
-                                </div>
-                                <div >
-                                    <button className="vRButton">View My Repair Data</button>
+                                    <NavLink to="/repairs"><button className="vRButton">View My Repair Data</button></NavLink>
                                 </div>
                             </div>
                         </div>
