@@ -32,7 +32,8 @@ usersRouter.route('/add').post((req, res) => __awaiter(void 0, void 0, void 0, f
     const firstName = req.body.firstName;
     const lastName = req.body.lastName;
     const password = yield argon2_1.default.hash(req.body.password);
-    const newUser = new User_1.User({ email, firstName, lastName, password });
+    const isAdmin = false;
+    const newUser = new User_1.User({ email, firstName, lastName, password, isAdmin });
     User_1.User.count({ email: email }, (err, count) => __awaiter(void 0, void 0, void 0, function* () {
         if (err) {
             console.log("ERROR: " + err);
