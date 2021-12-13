@@ -1,5 +1,5 @@
 import React from 'react';
-import { Redirect } from 'react-router-dom';
+import { NavLink, Redirect } from 'react-router-dom';
 import userStore from '../store/UserStore';
 import * as UserActions from '../store/actions/userActions';
 import axios from 'axios';
@@ -11,38 +11,38 @@ interface IProps {
 
 // defines the type of the state
 interface HomeState {
-    username: string | undefined;
+    email: string | undefined;
 }
 
 export default class Home extends React.Component<IProps, HomeState> {
     constructor(props: IProps) {
         super(props);
         this.state = {
-            username: userStore.getUser()?.username
+            email: userStore.getUser()?.email
         }
     }
 
     componentDidMount() {
         userStore.on("change", () => {
-            let name = userStore.getUser()?.username;
-            if (name == undefined) {
+            let email = userStore.getUser()?.email;
+            if (email == undefined) {
                 this.setState({
-                    username: ''
+                    email: ''
                 });
             }
             else{
                 this.setState({
-                    username: name
+                    email: email
                 });
             }
             
         });
     }
 
-    getUserFromLocalStorage(username: string){
+    getUserFromLocalStorage(email: string){
         var path="";
         if(process.env.NODE_ENV === "development"){ path = "http://localhost:5000"}
-        axios.get<User>(`${path}/users/username/${username}`)
+        axios.get<User>(`${path}/users/email/${email}`)
             .then(result => {
                 UserActions.setUser(result.data);
             })
@@ -50,22 +50,58 @@ export default class Home extends React.Component<IProps, HomeState> {
     }
 
     render(){
-        if ((this.state.username == "" 
-        || this.state.username == undefined 
-        || this.state.username == null)
+        if ((this.state.email == "" 
+        || this.state.email == undefined 
+        || this.state.email == null)
         && localStorage.getItem("user") == null) {
             return (
                 <Redirect push to='/register' />
             );
         }
         else {
-            var username = localStorage.getItem("user");
-            if(username != null && userStore.getUser() == null){
-                this.getUserFromLocalStorage(username);
+            var email = localStorage.getItem("user");
+            if(email != null && userStore.getUser() == null){
+                this.getUserFromLocalStorage(email);
             }
             return (
-                <div>
-                    Home page!
+                <div className="background" style={{backgroundImage: `url(images/caio-silva-guitarHomepagePic3.jpg)`}}>
+                    <section>
+                        <div >  
+                            <div className="title">                   
+                                <h1 className="centering big_text">STRINGBUZZ</h1>
+                                <br/>
+                                <p className="page_title">Your Guitar's bestfriend</p>
+                                <div >
+                                    <NavLink to="/appointment"><button className="mAButton">Make Appointment</button></NavLink>
+                                </div>
+                                <div>
+                                    <NavLink to="/view-instrument"><button className="vIButton">View My Instruments</button></NavLink>
+                                </div>
+                                <div >
+                                    <NavLink to="/repairs"><button className="vRButton">View My Repair Data</button></NavLink>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <footer>
+                        <ul className="mediaFooter">
+                            <li>
+                                <a href="https://twitter.com" target="_blank">
+                                    <img className="footer-img" src="images/Twitter favicon.png"/>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://youtube.com" target="_blank">                       
+                                    <img className="footer-img" src="images/Youtube favicon.png"/>                   
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://instagram.com" target="_blank">                       
+                                    <img className="footer-img" src="images/IG favicon.png"/>                       
+                                </a>
+                            </li>
+                        </ul>
+                    </footer> 
                 </div>
             );
         }
