@@ -31,9 +31,15 @@ const userSchema = new mongoose_1.Schema({
         trim: true,
         minLength: 3
     },
+    isAdmin: {
+        type: Boolean,
+        required: true,
+        unique: false,
+        default: false,
+    },
 }, {
     timestamps: true,
 });
-const User = mongoose_1.model('User', userSchema);
+const User = (0, mongoose_1.model)('User', userSchema);
 exports.User = User;
 //# sourceMappingURL=User.js.map
