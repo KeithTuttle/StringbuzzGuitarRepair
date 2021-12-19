@@ -12,27 +12,32 @@ interface IProps {
 // defines the type of the state
 interface HomeState {
     email: string | undefined;
+    isAdmin: boolean | undefined;
 }
 
 export default class AccountInfo extends React.Component<IProps, HomeState> {
     constructor(props: IProps) {
         super(props);
         this.state = {
-            email: userStore.getUser()?.email
+            email: userStore.getUser()?.email,
+            isAdmin: userStore.getUser()?.isAdmin
         }
     }
 
     componentDidMount() {
         userStore.on("change", () => {
             let email = userStore.getUser()?.email;
+            let isAdmin = userStore.getUser()?.isAdmin;
             if (email == undefined) {
                 this.setState({
-                    email: ''
+                    email: '',
+                    isAdmin: true
                 });
             }
             else{
                 this.setState({
-                    email: email
+                    email: email,
+                    isAdmin: true
                 });
             }
             
@@ -62,6 +67,13 @@ export default class AccountInfo extends React.Component<IProps, HomeState> {
             var email = localStorage.getItem("user");
             if(email != null && userStore.getUser() == null){
                 this.getUserFromLocalStorage(email);
+            }
+            if(this.state.isAdmin){
+                return (
+                    <div className="container">
+                        ADMIN
+                    </div>
+                );
             }
             return (
                 <div className="container">

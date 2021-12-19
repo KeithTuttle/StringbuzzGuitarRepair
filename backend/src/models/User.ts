@@ -5,10 +5,10 @@ interface IUser extends Document {
     firstName: string;
     lastName: string;
     password: string;
+    isAdmin: boolean;
 }
 
 const userSchema: Schema = new Schema({
-
     email: {
         type: String,
         required: true,
@@ -36,6 +36,12 @@ const userSchema: Schema = new Schema({
         unique: false,
         trim: true,
         minLength: 3
+    },
+    isAdmin: {
+        type: Boolean,
+        required: true,
+        unique: false,
+        default: false,
     },
 }, {
     timestamps: true,

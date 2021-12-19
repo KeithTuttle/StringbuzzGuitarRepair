@@ -12,6 +12,7 @@ interface IProps {
 // defines the type of the state
 interface NavState {
     firstName: string;
+    isAdmin: boolean;
 }
 
 export default class NavBar extends React.Component<IProps, NavState> {
@@ -20,27 +21,33 @@ export default class NavBar extends React.Component<IProps, NavState> {
         this.clearUsername = this.clearUsername.bind(this);
         this.state = {
             firstName: '',
+            isAdmin: false
         }
     }
 
     clearUsername(){
         localStorage.removeItem("user");
         this.setState({
-            firstName: ""
+            firstName: "",
+            isAdmin: false
         });
         var user = new User();
         user.firstName = '';
+        user.isAdmin = false;
         UserActions.setUser(user);
     }
 
     componentDidMount() {
         userStore.on("change", () => {
             var name = userStore.getUser()?.firstName;
+            var isAdmin = userStore.getUser()?.isAdmin
             if (name == undefined) {
                 name = '';
+                isAdmin = false;
             }
             this.setState({
-                firstName: name
+                firstName: name,
+                isAdmin: isAdmin!       //assumes that isAdmin is not null if firstName is not null. 
             })
         });
     }
@@ -49,7 +56,7 @@ export default class NavBar extends React.Component<IProps, NavState> {
         return(
             <nav className="container topnav navbar navbar-dark bg-dark navbar-expand-lg">
                 <NavLink to="/" className="main_title navbar-brand">Stringbuzz Guitar Repair</NavLink>
-                {this.state.firstName != '' &&
+                {this.state.isAdmin &&
                 <input className="navbar-search form-control navSearch" type="text" style={{maxWidth: '30%'}} placeholder="Search Repairs"></input>
                 }
                 <div className="collpase navbar-collapse">
