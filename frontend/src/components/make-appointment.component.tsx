@@ -64,7 +64,7 @@ export default class MakeAppointment extends React.Component<IProps, HomeState> 
                 this.getUserFromLocalStorage(email);
             }
             return (
-                <div className="container">
+                <div style={{minHeight: "60vh"}} className="container">
                     Make an appointment!
                 </div>
             );

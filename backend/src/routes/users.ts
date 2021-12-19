@@ -158,7 +158,6 @@ usersRouter.post("/contact", (req, res) => {
     var transporter = nodemailer.createTransport( 
         `smtps://mappinteam%40gmail.com:MappinProject@smtp.gmail.com` 
     ); 
-
     const firstName = req.body.firstName;
     const lastName = req.body.lastName;
     const name = firstName +" "+lastName;

@@ -30,12 +30,9 @@ code {
 /************ (CODE FOR SPRINT 2) Footer *************/
 
 .mediaFooter {
-  position: absolute;
-  bottom: 80px;
   padding: 0;
-  margin-left: auto;
+  margin-left: -7%;
   list-style-type: none;
-  left: 38.5%;
   opacity: 50%;
   filter: brightness(0) invert(1);
 }
@@ -52,15 +49,12 @@ code {
   background: rgba(24, 23, 23, 0.575);
   height: 200px;
   width: 100%;
-  position: fixed;
   left: 0;
-  bottom: 0;
 }
 .footer {
   color: #fff;
-  height: 300px;
+  height: 26vh;
   width: 100%;
-  bottom: 0;
   z-index: 1;
 }
 
@@ -69,16 +63,13 @@ code {
   color: rgba(255, 255, 255, 0.151);
   height: 50px;
   text-align: center;
-  position: fixed;
   width: 100%;
-  bottom: 0px;
   left: 0px;
   padding-top: 20px;
 }
 
 .about {
   width: 25%;
-  position: relative;
   top: 10px;
   font-size: 11px;
   margin: 0;
@@ -95,7 +86,6 @@ code {
 .followUs {
   font-family: "Permanent Marker", sans-serif;
   width: 100%;
-  position: absolute;
   top: 10px;
   margin: 0;
   padding-left: 0px;
@@ -105,8 +95,6 @@ code {
 }
 
 .support {
-  width: 175%;
-  position: absolute;
   top: 10px;
   font-size: 11px;
   margin: 0;
@@ -204,11 +192,10 @@ a {
 
 /**************************** Navbar ****************************/
 .inner_navcontainer {
-  width: 50%;
+  width: 80%;
   margin-left: auto;
   margin-right: auto;
   z-index: 1;
-  position: fixed;
   left: 0;
   right: 0;
 }
@@ -254,8 +241,6 @@ p.main_title {
 /**************************** Titles ****************************/
 div.title {
   text-align: center;
-  padding-top: 20px;
-  min-height: 100%;
 }
 
 /* 'Map-Pin' specific */

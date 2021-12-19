@@ -5,6 +5,7 @@ import './App.css';
 
 import Navbar from "./components/navbar.component";
 import Home from "./components/home.component";
+import Footer from "./components/footer.component";
 import RegisterUser from "./components/register-user.component";
 import LoginUser from "./components/login-user.component";
 import ContactUs from "./components/contact.component";
@@ -26,6 +27,7 @@ function App() {
       <Route path="/appointment" exact component={MakeAppointment} />
       <Route path="/repairs" exact component={RepairData} />
       <Route path="/account-info" exact component={AccountInfo} />
+      <Footer />
     </Router>
   );
 }

@@ -134,7 +134,7 @@ export default class ViewInstrument extends React.Component<IProps, InstrumentVi
                 this.getUserFromLocalStorage(email);
             }
             return (
-                <div className="container">
+                <div style={{minHeight: "61vh"}} className="container">
                     <div style={{marginBottom: 15}} className="row justify-content-end">
                         <div className="col-2">
                             {/* Button Trigger Modal */}
@@ -159,7 +159,7 @@ export default class ViewInstrument extends React.Component<IProps, InstrumentVi
                 this.getUserFromLocalStorage(email);
             }
             return (
-                <div className="container">
+                <div style={{minHeight: "60vh"}} className="container">
                     <div style={{marginBottom: 15}} className="row justify-content-end">
                         <div className="col-2">
                             {/* Button Trigger Modal */}
