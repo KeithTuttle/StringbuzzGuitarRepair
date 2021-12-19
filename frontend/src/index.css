@@ -2,7 +2,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&display=swap"); /* 'Comfortaa' font, used for .page_title */
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,900;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Roboto:ital,wght@0,900;1,900&display=swap");
+
+html,
 body {
+  height: 100%;
+  padding: 0;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
@@ -23,15 +27,97 @@ code {
   margin-right: auto;
 }
 
-/************ (CODE FOR SPRINT 2) *************/
+/************ (CODE FOR SPRINT 2) Footer *************/
+
 .mediaFooter {
   position: absolute;
-  bottom: 50px;
+  bottom: 80px;
   padding: 0;
   margin-left: auto;
   list-style-type: none;
-  left: 50px;
+  left: 38.5%;
   opacity: 50%;
+  filter: brightness(0) invert(1);
+}
+
+.ul_horizontal li {
+  display: inline;
+}
+
+.footer ul li {
+  margin-left: 50px;
+}
+
+.footer .footer-elements {
+  background: rgba(24, 23, 23, 0.575);
+  height: 200px;
+  width: 100%;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+}
+.footer {
+  color: #fff;
+  height: 300px;
+  width: 100%;
+  bottom: 0;
+  z-index: 1;
+}
+
+.footer .footer-copyright {
+  background: rgba(24, 23, 23, 0.975);
+  color: rgba(255, 255, 255, 0.151);
+  height: 50px;
+  text-align: center;
+  position: fixed;
+  width: 100%;
+  bottom: 0px;
+  left: 0px;
+  padding-top: 20px;
+}
+
+.about {
+  width: 25%;
+  position: relative;
+  top: 10px;
+  font-size: 11px;
+  margin: 0;
+  padding-left: 15px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.h5-type {
+  font-family: "Permanent Marker", sans-serif;
+}
+
+.followUs {
+  font-family: "Permanent Marker", sans-serif;
+  width: 100%;
+  position: absolute;
+  top: 10px;
+  margin: 0;
+  padding-left: 0px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.support {
+  width: 175%;
+  position: absolute;
+  top: 10px;
+  font-size: 11px;
+  margin: 0;
+  padding-left: 0px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+a {
+  margin-left: 0;
 }
 
 /******************** (CODE FOR SPRINT 2) Make Appointment Button *********************/
@@ -107,7 +193,6 @@ code {
   background-blend-mode: multiply;
   background-size: cover;
   padding: 21.5em;
-  height: 100%;
   background-position: center;
   background-repeat: no-repeat;
 }
@@ -156,10 +241,10 @@ p.main_title {
   font-size: 17px;
 }
 
-.navSearch{
+.navSearch {
   background-color: #343a40 !important;
   color: white !important;
-  border-radius:20px !important;
+  border-radius: 20px !important;
 }
 
 #nav-dropdow {
@@ -170,6 +255,7 @@ p.main_title {
 div.title {
   text-align: center;
   padding-top: 20px;
+  min-height: 100%;
 }
 
 /* 'Map-Pin' specific */

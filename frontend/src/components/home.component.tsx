@@ -65,7 +65,7 @@ export default class Home extends React.Component<IProps, HomeState> {
             }
             return (
                 <div className="background" style={{backgroundImage: `url(images/caio-silva-guitarHomepagePic3.jpg)`}}>
-                    <section>
+                    
                         <div >  
                             <div className="title">                   
                                 <h1 className="centering big_text">STRINGBUZZ</h1>
@@ -82,26 +82,48 @@ export default class Home extends React.Component<IProps, HomeState> {
                                 </div>
                             </div>
                         </div>
-                    </section>
-                    <footer>
-                        <ul className="mediaFooter">
-                            <li>
-                                <a href="https://twitter.com" target="_blank">
-                                    <img className="footer-img" src="images/Twitter favicon.png"/>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://youtube.com" target="_blank">                       
-                                    <img className="footer-img" src="images/Youtube favicon.png"/>                   
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://instagram.com" target="_blank">                       
-                                    <img className="footer-img" src="images/IG favicon.png"/>                       
-                                </a>
-                            </li>
-                        </ul>
-                    </footer> 
+                    
+                    
+                        <div className = "footer" >
+                            <div className = "footer-elements">
+                                <div className = "footer-section about">
+                                    <h5 className = "h5-type">About US</h5>
+                                    <p>We here at Stringbuzz Guitar Repair want to be your first choice on any of your guitar repair needs. While being Established since 2021, we take pride in the quality and care of the work we povide just for you.</p>
+                                </div>
+                                <div className = "followUs"><h5>Follow US</h5></div>
+                                <div className = "support">
+                                    <h5 className = "h5-type">Support</h5>
+                                    <p>1-800-Stringbuzz</p>
+                                    <a href =" ">support@Stringbuzz.com</a>
+                                    <p>12345 Buzz blvd 
+                                        City, State 22222
+                                        United States
+                                    </p>
+                                </div>
+                                <div className = "footer-section social-links">
+                                    <ul className="mediaFooter ul_horizontal ">
+                                        <li>
+                                            <a href="https://twitter.com" target="_blank">
+                                                <img className="footer-img" src="images/Twitter favicon.png"/>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="https://youtube.com" target="_blank">                       
+                                                <img className="footer-img" src="images/Youtube favicon.png"/>                   
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="https://instagram.com" target="_blank">                       
+                                             <img className="footer-img" src="images/IG favicon.png"/>                       
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div className = "footer-copyright">&copy; 2021 Stringbuzz | All Rights Reserved</div>
+                        </div>
+                    
                 </div>
             );
         }
