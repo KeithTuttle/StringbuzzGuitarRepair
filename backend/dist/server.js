@@ -16,13 +16,14 @@ const express_1 = __importDefault(require("express"));
 const cors_1 = __importDefault(require("cors"));
 const mongoose_1 = __importDefault(require("mongoose"));
 const users_1 = require("./routes/users");
+const instrument_1 = require("./routes/instrument");
 const dotenv_1 = __importDefault(require("dotenv"));
 const path_1 = __importDefault(require("path"));
 const main = () => __awaiter(void 0, void 0, void 0, function* () {
     dotenv_1.default.config();
-    const app = (0, express_1.default)();
+    const app = express_1.default();
     const port = process.env.PORT || 5000;
-    app.use((0, cors_1.default)());
+    app.use(cors_1.default());
     app.use(express_1.default.json());
     const uri = process.env.ATLAS_URI + '';
     mongoose_1.default.connect(process.env.MONGODB_URI || uri, { useNewUrlParser: true, useCreateIndex: true });
@@ -31,6 +32,7 @@ const main = () => __awaiter(void 0, void 0, void 0, function* () {
         console.log("MongoDB database connection established!");
     });
     app.use('/users', users_1.usersRouter);
+    app.use('/instrument', instrument_1.instrumentRouter);
     if (process.env.NODE_ENV === 'production') {
         app.use(express_1.default.static('public'));
         app.get('*', (req, res) => {

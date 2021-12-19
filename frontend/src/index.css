@@ -35,6 +35,18 @@ code {
 }
 
 /******************** (CODE FOR SPRINT 2) Make Appointment Button *********************/
+.sbButton {
+  background-color: goldenrod !important;
+  color: white !important;
+  font-weight: 500 !important;
+  border-color: transparent !important;
+}
+
+.sbButton:hover,
+.sbButton:focus {
+  background-color: rgb(143, 109, 24) !important;
+}
+
 .mAButton {
   outline: none;
   position: absolute;
