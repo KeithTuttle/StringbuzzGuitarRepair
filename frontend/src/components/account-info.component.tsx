@@ -70,7 +70,7 @@ export default class AccountInfo extends React.Component<IProps, HomeState> {
             }
             if(this.state.isAdmin){
                 return (
-                    <div className="container">
+                    <div style={{minHeight: "60vh"}} className="container">
                         ADMIN
                     </div>
                 );
