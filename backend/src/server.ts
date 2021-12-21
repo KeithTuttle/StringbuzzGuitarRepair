@@ -2,6 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import mongoose from 'mongoose';
 import { usersRouter } from './routes/users';
+import { instrumentRouter } from './routes/instrument';
 import dotenv from 'dotenv';
 import path from 'path';
 
@@ -27,6 +28,7 @@ const main = async () => {
 
     // routers
     app.use('/users', usersRouter);
+    app.use('/instrument', instrumentRouter);
 
     if (process.env.NODE_ENV === 'production'){
       app.use(express.static('public'));

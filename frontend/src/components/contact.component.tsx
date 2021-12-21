@@ -88,7 +88,7 @@ class ContactUs extends React.Component<IProps, ContactState> {
     render(){
         let buttonText = this.state.status;
         return(
-            <div className="container">
+            <div style={{minHeight: "60vh"}} className="container">
                 <div className="title">
                     <h1 className="page_title">Contact the Stringbuzz Team</h1>
                 </div>

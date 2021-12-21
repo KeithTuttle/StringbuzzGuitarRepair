@@ -156,7 +156,7 @@ class RegisterUser extends React.Component<IProps, RegisterState> {
 
     render(){
         return(
-            <div className="container" style={{marginLeft: 'auto', marginRight: 'auto', width: '30%'}}>
+            <div className="container" style={{minHeight: "60vh", marginLeft: 'auto', marginRight: 'auto', width: '30%'}}>
                 { this.state.redirect ? (<Redirect push to='/'/>) : null }
                 <h3>Create Account</h3>
                 <form onSubmit={this.onSubmit}>

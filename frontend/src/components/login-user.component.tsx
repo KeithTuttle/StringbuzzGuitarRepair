@@ -92,7 +92,7 @@ class LoginUser extends React.Component<IProps, LoginState> {
 
     render(){
         return(
-            <div className="container" style={{marginLeft: 'auto', marginRight: 'auto', width: '30%'}}>
+            <div className="container" style={{minHeight: "60vh", marginLeft: 'auto', marginRight: 'auto', width: '30%', scrollBehavior: "unset"}}>
                 { this.state.redirect ? (<Redirect to={{pathname: "/" }}/>) : null }
                 <h3>Sign in to Your Account</h3>
                 <form onSubmit={this.onSubmit}>

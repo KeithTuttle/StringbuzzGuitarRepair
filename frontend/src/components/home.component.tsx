@@ -65,7 +65,7 @@ export default class Home extends React.Component<IProps, HomeState> {
             }
             return (
                 <div className="background" style={{backgroundImage: `url(images/caio-silva-guitarHomepagePic3.jpg)`}}>
-                    <section>
+                    
                         <div >  
                             <div className="title">                   
                                 <h1 className="centering big_text">STRINGBUZZ</h1>
@@ -82,26 +82,6 @@ export default class Home extends React.Component<IProps, HomeState> {
                                 </div>
                             </div>
                         </div>
-                    </section>
-                    <footer>
-                        <ul className="mediaFooter">
-                            <li>
-                                <a href="https://twitter.com" target="_blank">
-                                    <img className="footer-img" src="images/Twitter favicon.png"/>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://youtube.com" target="_blank">                       
-                                    <img className="footer-img" src="images/Youtube favicon.png"/>                   
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://instagram.com" target="_blank">                       
-                                    <img className="footer-img" src="images/IG favicon.png"/>                       
-                                </a>
-                            </li>
-                        </ul>
-                    </footer> 
                 </div>
             );
         }

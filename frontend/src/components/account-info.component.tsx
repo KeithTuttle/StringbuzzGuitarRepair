@@ -76,7 +76,7 @@ export default class AccountInfo extends React.Component<IProps, HomeState> {
                 );
             }
             return (
-                <div className="container">
+                <div style={{minHeight: "60vh"}} className="container">
                     Account Info
                 </div>
             );
